@@ -1,1 +1,1 @@
-# Avalonia.PagedDataGrid.Test
+# Avalonia.PagedDataGrid
