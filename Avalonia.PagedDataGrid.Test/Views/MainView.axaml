@@ -5,8 +5,8 @@
              xmlns:vm="clr-namespace:Avalonia.PagedDataGrid.Test.ViewModels"
 			 xmlns:models="clr-namespace:Avalonia.PagedDataGrid.Test.Models"
 			 xmlns:pdgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedDataGrid"
-			 xmlns:pqdgc="clr-namespace:Avalonia.PagedQueryableDataGrid.Controls;assembly=Avalonia.PagedQueryableDataGrid"
-			 xmlns:pedgc="clr-namespace:Avalonia.PagedEnumerableDataGrid.Controls;assembly=Avalonia.PagedEnumerableDataGrid"
+			 xmlns:pqdgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedQueryableDataGrid"
+			 xmlns:pedgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedEnumerableDataGrid"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Avalonia.PagedDataGrid.Test.Views.MainView"
              x:DataType="vm:MainViewModel">

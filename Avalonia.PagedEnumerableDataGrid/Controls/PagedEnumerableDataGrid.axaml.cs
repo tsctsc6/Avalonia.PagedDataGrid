@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace Avalonia.PagedEnumerableDataGrid.Controls;
+namespace Avalonia.PagedDataGrid.Controls;
 
 public partial class PagedEnumerableDataGrid : UserControl
 {
