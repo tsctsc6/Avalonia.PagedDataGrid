@@ -10,9 +10,10 @@
     <Description>Avalonia.DataGrid with automatic paging.</Description>
     <PackageProjectUrl>https://github.com/tsctsc6/Avalonia.PagedDataGrid</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tsctsc6/Avalonia.PagedDataGrid</RepositoryUrl>
-    <PackageReadmeFile>$(SolutionDir)README.md</PackageReadmeFile>
-    <PackageLicenseFile>$(SolutionDir)LICENSE.txt</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>11.1.3.0</AssemblyVersion>
   </PropertyGroup>
 	
 	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == ''">
@@ -21,13 +22,9 @@
 	</PropertyGroup>
 	
   <ItemGroup>
-    <None Include="E:\Files\CSharp\Avalonia.PagedDataGrid.Test\LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="">
     </None>
-    <None Include="E:\Files\CSharp\Avalonia.PagedDataGrid.Test\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Include="..\README.md" Pack="true" PackagePath="">
     </None>
   </ItemGroup>
 
