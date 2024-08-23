@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Avalonia.PagedDataGrid.Test.ViewModels"
+			 xmlns:models="clr-namespace:Avalonia.PagedDataGrid.Test.Models"
+			 xmlns:pdgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedDataGrid"
+			 xmlns:pqdgc="clr-namespace:Avalonia.PagedQueryableDataGrid.Controls;assembly=Avalonia.PagedQueryableDataGrid"
+			 xmlns:pedgc="clr-namespace:Avalonia.PagedEnumerableDataGrid.Controls;assembly=Avalonia.PagedEnumerableDataGrid"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.PagedDataGrid.Test.Views.MainView"
+             x:DataType="vm:MainViewModel">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainViewModel />
+	</Design.DataContext>
+	<Grid ColumnDefinitions="*, *">
+		<pedgc:PagedEnumerableDataGrid Grid.Column="0"
+									   ItemsSource="{Binding Movies_e}"
+								       AutoGenerateColumns="True"
+									   IsReadOnly="True">
+			<pedgc:PagedEnumerableDataGrid.DataGridColumns>
+				<DataGridTextColumn x:DataType="models:Movie" Header="Id" Binding="{Binding Id}"/>
+			</pedgc:PagedEnumerableDataGrid.DataGridColumns>
+	</pedgc:PagedEnumerableDataGrid>
+		<pqdgc:PagedQueryableDataGrid Grid.Column="1"
+									  ItemsSource="{Binding Movies_q}"
+								      AutoGenerateColumns="True"
+								      IsReadOnly="True">
+			<pqdgc:PagedQueryableDataGrid.DataGridColumns>
+				<DataGridTextColumn x:DataType="models:Movie" Header="Id" Binding="{Binding Id}"/>
+			</pqdgc:PagedQueryableDataGrid.DataGridColumns>
+		</pqdgc:PagedQueryableDataGrid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.PagedEnumerableDataGrid.Controls.PagedEnumerableDataGrid">
+	<UserControl.Styles>
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+	</UserControl.Styles>
+	<Grid RowDefinitions="*, auto">
+		<ScrollViewer Grid.Row="0">
+			<DataGrid x:Name="MainDataGrid"/>
+		</ScrollViewer>
+		<Grid Grid.Row="1" HorizontalAlignment="Center"
+				  ColumnDefinitions="auto, auto, auto, auto, auto, ">
+			<NumericUpDown x:Name="CurrentPageNumericUpDown" Grid.Column="0" FormatString="0" Minimum="1" Value="1"/>
+			<Button x:Name="JumpButton" Content="Jump" VerticalAlignment="Center" Grid.Column="1" Click="JumpButton_Click"/>
+			<TextBlock FontSize="20" Text=" / " VerticalAlignment="Center" Grid.Column="2"/>
+			<TextBlock x:Name="MaxPageTextBlock" FontSize="20" VerticalAlignment="Center" Grid.Column="3" Margin="0 0 20 0"/>
+			<NumericUpDown x:Name="ItemCountPerPageNumericUpDown" Grid.Column="4" FormatString="0" Minimum="1" Value="10"/>
+		</Grid>
+	</Grid>
+</UserControl>
