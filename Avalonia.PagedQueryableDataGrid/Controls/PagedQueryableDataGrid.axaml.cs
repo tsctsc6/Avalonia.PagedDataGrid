@@ -289,4 +289,45 @@ public partial class PagedQueryableDataGrid : UserControl
             return MainDataGrid.Columns;
         }
     }
+
+    public static readonly DirectProperty<PagedQueryableDataGrid, object> SelectedItemProperty =
+    AvaloniaProperty.RegisterDirect<PagedQueryableDataGrid, object>(
+      nameof(SelectedItem),
+      o => o.SelectedItem,
+      (o, v) => o.SelectedItem = v,
+      defaultBindingMode: BindingMode.TwoWay);
+    public object SelectedItem
+    {
+        get { return MainDataGrid.SelectedItem; }
+        set { MainDataGrid.SelectedItem = value; }
+    }
+
+    public IList SelectedItems
+    {
+        get { return MainDataGrid.SelectedItems; }
+    }
+
+    public static readonly DirectProperty<PagedQueryableDataGrid, int> SelectedIndexProperty =
+        AvaloniaProperty.RegisterDirect<PagedQueryableDataGrid, int>(
+          nameof(SelectedIndex),
+          o => o.SelectedIndex,
+          (o, v) => o.SelectedIndex = v,
+          defaultBindingMode: BindingMode.TwoWay);
+    public int SelectedIndex
+    {
+        get { return MainDataGrid.SelectedIndex; }
+        set { MainDataGrid.SelectedIndex = value; }
+    }
+
+    public static readonly DirectProperty<PagedQueryableDataGrid, DataGridSelectionMode> SelectionModeProperty =
+        AvaloniaProperty.RegisterDirect<PagedQueryableDataGrid, DataGridSelectionMode>(
+          nameof(SelectionMode),
+          o => o.SelectionMode,
+          (o, v) => o.SelectionMode = v,
+          defaultBindingMode: BindingMode.TwoWay);
+    public DataGridSelectionMode SelectionMode
+    {
+        get { return MainDataGrid.SelectionMode; }
+        set { MainDataGrid.SelectionMode = value; }
+    }
 }
