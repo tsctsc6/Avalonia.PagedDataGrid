@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -14,7 +14,12 @@
     <PackageLicenseFile>$(SolutionDir)LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
-
+	
+	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == ''">
+		<TargetFrameworkIdentifier>.NETCoreApp</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>8.0</TargetFrameworkVersion>
+	</PropertyGroup>
+	
   <ItemGroup>
     <None Include="E:\Files\CSharp\Avalonia.PagedDataGrid.Test\LICENSE.txt">
       <Pack>True</Pack>
