@@ -17,18 +17,26 @@
 	<Grid ColumnDefinitions="*, *">
 		<pedgc:PagedEnumerableDataGrid Grid.Column="0"
 									   ItemsSource="{Binding Movies_e}"
-								       AutoGenerateColumns="True"
+								       AutoGenerateColumns="False"
 									   IsReadOnly="True">
 			<pedgc:PagedEnumerableDataGrid.DataGridColumns>
 				<DataGridTextColumn x:DataType="models:Movie" Header="Id" Binding="{Binding Id}"/>
+				<DataGridTextColumn x:DataType="models:Movie" Header="Title" Binding="{Binding Title}"/>
+				<DataGridTextColumn x:DataType="models:Movie" Header="ReleaseDate" Binding="{Binding ReleaseDate}"/>
+				<DataGridTextColumn x:DataType="models:Movie" Header="Genre" Binding="{Binding Genre}"/>
+				<DataGridTextColumn x:DataType="models:Movie" Header="Price" Binding="{Binding Price}"/>
 			</pedgc:PagedEnumerableDataGrid.DataGridColumns>
-	</pedgc:PagedEnumerableDataGrid>
+		</pedgc:PagedEnumerableDataGrid>
 		<pqdgc:PagedQueryableDataGrid Grid.Column="1"
 									  ItemsSource="{Binding Movies_q}"
-								      AutoGenerateColumns="True"
+								      AutoGenerateColumns="False"
 								      IsReadOnly="True">
 			<pqdgc:PagedQueryableDataGrid.DataGridColumns>
-				<DataGridTextColumn x:DataType="models:Movie" Header="Id" Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="Id" Binding="{ReflectionBinding Id}"/>
+				<DataGridTextColumn Header="Title" Binding="{ReflectionBinding Title}"/>
+				<DataGridTextColumn Header="ReleaseDate" Binding="{ReflectionBinding ReleaseDate}"/>
+				<DataGridTextColumn Header="Genre" Binding="{ReflectionBinding Genre}"/>
+				<DataGridTextColumn Header="Price" Binding="{ReflectionBinding Price}"/>
 			</pqdgc:PagedQueryableDataGrid.DataGridColumns>
 		</pqdgc:PagedQueryableDataGrid>
 	</Grid>
