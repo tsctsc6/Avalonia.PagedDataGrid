@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Avalonia.PagedDataGrid.Test.ViewModels"
 			 xmlns:models="clr-namespace:Avalonia.PagedDataGrid.Test.Models"
-			 xmlns:pdgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedDataGrid"
 			 xmlns:pqdgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedQueryableDataGrid"
 			 xmlns:pedgc="clr-namespace:Avalonia.PagedDataGrid.Controls;assembly=Avalonia.PagedEnumerableDataGrid"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
