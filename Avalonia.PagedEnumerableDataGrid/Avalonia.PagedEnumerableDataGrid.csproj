@@ -4,7 +4,28 @@
     <TargetFramework>net8.0;netstandard2.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>$(AssemblyName)</Title>
+    <Authors>tsctsc6</Authors>
+    <Description>Avalonia.DataGrid with automatic paging.</Description>
+    <PackageProjectUrl>https://github.com/tsctsc6/Avalonia.PagedDataGrid</PackageProjectUrl>
+    <PackageReadmeFile>$(SolutionDir)README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/tsctsc6/Avalonia.PagedDataGrid</RepositoryUrl>
+    <PackageTags>Avalonia</PackageTags>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>$(SolutionDir)LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="E:\Files\CSharp\Avalonia.PagedDataGrid.Test\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="E:\Files\CSharp\Avalonia.PagedDataGrid.Test\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.3" />
