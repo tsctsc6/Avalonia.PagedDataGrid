@@ -90,7 +90,7 @@ public partial class PagedQueryableDataGrid : UserControl
     {
         get
         {
-            return (int)ItemCountPerPageNumericUpDown.Value;
+            return Convert.ToInt32(ItemCountPerPageNumericUpDown.Value);
         }
         set
         {
