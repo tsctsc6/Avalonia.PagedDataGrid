@@ -121,10 +121,10 @@ public partial class PagedEnumerableDataGrid : UserControl
 
     private void CalculateItemCount()
     {
-        if (T is null) return;
+        if (ElementType is null) return;
         IsEnabled = false;
 
-        ItemCount = (int)EnumerableCountMethodInfo.MakeGenericMethod(T)
+        ItemCount = (int)EnumerableCountMethodInfo.MakeGenericMethod(ElementType)
             .Invoke(null, [ItemsSource])!;
 
         CalculateMaxPage();
@@ -133,12 +133,12 @@ public partial class PagedEnumerableDataGrid : UserControl
 
     private void Refresh()
     {
-        if (T is null) return;
+        if (ElementType is null) return;
         IsEnabled = false;
 
-        var r0 = EnumerableSkipMethodInfo.MakeGenericMethod(T).Invoke(null, [ItemsSource,
+        var r0 = EnumerableSkipMethodInfo.MakeGenericMethod(ElementType).Invoke(null, [ItemsSource,
                 (CurrentPage - 1) * ItemCountPerPage]);
-        var r1 = EnumerableTakeMethodInfo.MakeGenericMethod(T).Invoke(null, [r0,
+        var r1 = EnumerableTakeMethodInfo.MakeGenericMethod(ElementType).Invoke(null, [r0,
                 ItemCountPerPage]);
         currentItems = r1 as IEnumerable;
 
@@ -160,7 +160,21 @@ public partial class PagedEnumerableDataGrid : UserControl
     }
 
     private IEnumerable? currentItems;
-    private Type? T;
+    private Type? ElementType;
+
+    public static Type? GetIEnumerableGenericType(IEnumerable? enumerable)
+    {
+        if (enumerable is null) return null;
+        Type enumerableType = enumerable.GetType();
+        Type[] interfaces = enumerableType.GetInterfaces();
+        Type genericIEnumerableType = interfaces
+            .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+        if (genericIEnumerableType != null)
+        {
+            return genericIEnumerableType.GetGenericArguments()[0];
+        }
+        return null;
+    }
 
     public static readonly DirectProperty<PagedEnumerableDataGrid, bool> AutoGenerateColumnsProperty =
         AvaloniaProperty.RegisterDirect<PagedEnumerableDataGrid, bool>(
@@ -190,7 +204,7 @@ public partial class PagedEnumerableDataGrid : UserControl
         set
         {
             _itemsSource = value;
-            T = ItemsSource?.AsQueryable().ElementType;
+            ElementType = GetIEnumerableGenericType(value);
             GetItemCountAndRefresh();
         }
     }

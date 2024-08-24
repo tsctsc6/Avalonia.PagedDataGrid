@@ -129,7 +129,7 @@ public partial class PagedQueryableDataGrid : UserControl
 
     private async ValueTask CalculateItemCountAsync()
     {
-        if (T is null) return;
+        if (ElementType is null) return;
         IsEnabled = false;
         int retryCount = 3;
         int currentCount = 0;
@@ -137,7 +137,7 @@ public partial class PagedQueryableDataGrid : UserControl
         {
             try
             {
-                ItemCount = await (QueryableCountAsyncMethodInfo.MakeGenericMethod(T)
+                ItemCount = await (QueryableCountAsyncMethodInfo.MakeGenericMethod(ElementType)
                         .Invoke(null, [ItemsSource, default]) as Task<int>)!;
                 break;
             }
@@ -156,13 +156,13 @@ public partial class PagedQueryableDataGrid : UserControl
 
     private async ValueTask RefreshAsync()
     {
-        if (T is null) return;
+        if (ElementType is null) return;
         IsEnabled = false;
-        var r0 = QueryableSkipMethodInfo.MakeGenericMethod(T).Invoke(null, [ItemsSource,
+        var r0 = QueryableSkipMethodInfo.MakeGenericMethod(ElementType).Invoke(null, [ItemsSource,
                 (CurrentPage - 1) * ItemCountPerPage]);
-        var r1 = QueryableTakeMethodInfo.MakeGenericMethod(T).Invoke(null, [r0,
+        var r1 = QueryableTakeMethodInfo.MakeGenericMethod(ElementType).Invoke(null, [r0,
                 ItemCountPerPage]);
-        var task = QueryableToArrayAsyncMethodInfo.MakeGenericMethod(T).Invoke(null,
+        var task = QueryableToArrayAsyncMethodInfo.MakeGenericMethod(ElementType).Invoke(null,
             [r1, default]);
 
         var TaskContinueWithMethodInfo = task.GetType().GetMethods()
@@ -199,7 +199,7 @@ public partial class PagedQueryableDataGrid : UserControl
     }
 
     private IEnumerable? currentItems;
-    private Type? T;
+    private Type? ElementType;
 
     public static readonly DirectProperty<PagedQueryableDataGrid, bool> AutoGenerateColumnsProperty =
         AvaloniaProperty.RegisterDirect<PagedQueryableDataGrid, bool>(
@@ -229,7 +229,7 @@ public partial class PagedQueryableDataGrid : UserControl
         set
         {
             _itemsSource = value;
-            T = ItemsSource?.AsQueryable().ElementType;
+            ElementType = ItemsSource?.ElementType;
             GetItemCountAndRefreshAsync();
         }
     }
