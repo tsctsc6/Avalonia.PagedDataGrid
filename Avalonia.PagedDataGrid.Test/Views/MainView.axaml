@@ -18,7 +18,8 @@
 		<pedgc:PagedEnumerableDataGrid Grid.Column="0"
 									   ItemsSource="{Binding Movies_e}"
 								       AutoGenerateColumns="False"
-									   IsReadOnly="True">
+									   IsReadOnly="True"
+									   Margin="10">
 			<pedgc:PagedEnumerableDataGrid.DataGridColumns>
 				<DataGridTextColumn x:DataType="models:Movie" Header="Id" Binding="{Binding Id}"/>
 				<DataGridTextColumn x:DataType="models:Movie" Header="Title" Binding="{Binding Title}"/>
@@ -30,7 +31,8 @@
 		<pqdgc:PagedQueryableDataGrid Grid.Column="1"
 									  ItemsSource="{Binding Movies_q}"
 								      AutoGenerateColumns="False"
-								      IsReadOnly="True">
+								      IsReadOnly="True"
+									  Margin="10">
 			<pqdgc:PagedQueryableDataGrid.DataGridColumns>
 				<DataGridTextColumn Header="Id" Binding="{ReflectionBinding Id}"/>
 				<DataGridTextColumn Header="Title" Binding="{ReflectionBinding Title}"/>
