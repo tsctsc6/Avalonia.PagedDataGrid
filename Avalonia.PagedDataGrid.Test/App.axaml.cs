@@ -27,7 +27,7 @@ public partial class App : Application
             dbService.Database.EnsureCreated();
             if (!dbService.Movies.Any())
             {
-                dbService.Movies.AddRange(ArrayService.Movies.Select(m =>
+                dbService.Movies.AddRange(MovieArrayService.Movies.Select(m =>
                 {
                     m.Id = 0;
                     return m;

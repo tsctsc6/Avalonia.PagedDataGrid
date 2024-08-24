@@ -17,7 +17,7 @@ public partial class MainViewModel : ViewModelBase
 
     public MainViewModel()
     {
-        Movies_e = ArrayService.Movies;
+        Movies_e = MovieArrayService.Movies;
         MovieDbContext dbService = new();
         Movies_q = dbService.Movies;
     }
