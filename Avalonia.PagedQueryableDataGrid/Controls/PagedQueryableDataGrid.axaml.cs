@@ -53,7 +53,7 @@ public partial class PagedQueryableDataGrid : UserControl
     {
         get
         {
-            return (int)CurrentPageNumericUpDown.Value;
+            return Convert.ToInt32(CurrentPageNumericUpDown.Value);
         }
         set
         {

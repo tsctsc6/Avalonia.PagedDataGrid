@@ -45,7 +45,7 @@ public partial class PagedEnumerableDataGrid : UserControl
     {
         get
         {
-            return (int)CurrentPageNumericUpDown.Value;
+            return Convert.ToInt32(CurrentPageNumericUpDown.Value);
         }
         set
         {
