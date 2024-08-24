@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Avalonia.PagedDataGrid.Controls.PagedEnumerableDataGrid">
-	<UserControl.Styles>
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
-	</UserControl.Styles>
+	
 	<Grid RowDefinitions="*, auto">
 		<ScrollViewer Grid.Row="0">
 			<DataGrid x:Name="MainDataGrid"/>
