@@ -187,7 +187,7 @@ public partial class PagedQueryableDataGrid : UserControl
         return Result as IEnumerable;
     }
 
-    private async ValueTask GetItemCountAndRefreshAsync()
+    private async ValueTask CalculateItemCountAndRefreshAsync()
     {
         await CalculateItemCountAsync();
         await RefreshAsync();
@@ -237,7 +237,7 @@ public partial class PagedQueryableDataGrid : UserControl
         {
             _itemsSource = value;
             ElementType = ItemsSource?.ElementType;
-            GetItemCountAndRefreshAsync();
+            CalculateItemCountAndRefreshAsync();
         }
     }
 
