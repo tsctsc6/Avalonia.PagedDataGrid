@@ -148,7 +148,7 @@ public partial class PagedEnumerableDataGrid : UserControl
         IsEnabled = true;
     }
 
-    private void GetItemCountAndRefresh()
+    private void CalculateItemCountAndRefresh()
     {
         CalculateItemCount();
         Refresh();
@@ -156,6 +156,12 @@ public partial class PagedEnumerableDataGrid : UserControl
 
     private void JumpButton_Click(object? sender, Interactivity.RoutedEventArgs e)
     {
+        Refresh(false);
+    }
+
+    public void Refresh(bool IsBackToTheBeginning)
+    {
+        if (IsBackToTheBeginning) CurrentPage = 1;
         CalculateMaxPage();
         Refresh();
     }
@@ -206,7 +212,7 @@ public partial class PagedEnumerableDataGrid : UserControl
         {
             _itemsSource = value;
             ElementType = GetIEnumerableGenericType(value);
-            GetItemCountAndRefresh();
+            CalculateItemCountAndRefresh();
         }
     }
 

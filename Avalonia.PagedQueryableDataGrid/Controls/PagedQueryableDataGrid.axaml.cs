@@ -195,6 +195,12 @@ public partial class PagedQueryableDataGrid : UserControl
 
     private async void JumpButton_Click(object? sender, Interactivity.RoutedEventArgs e)
     {
+        await RefreshAsync(false);
+    }
+
+    public async Task RefreshAsync(bool IsBackToTheBeginning)
+    {
+        if (IsBackToTheBeginning) CurrentPage = 1;
         CalculateMaxPage();
         await RefreshAsync();
     }
