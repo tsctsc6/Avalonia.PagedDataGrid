@@ -113,6 +113,7 @@ public partial class PagedEnumerableDataGrid : UserControl
 
     private void CalculateMaxPage()
     {
+        if (ItemCountPerPage == 0) ItemCountPerPage = 1;
         if (ItemCount % ItemCountPerPage != 0)
             MaxPage = ItemCount / ItemCountPerPage + 1;
         else
