@@ -71,7 +71,7 @@ public partial class PagedQueryableDataGrid : UserControl
     {
         get
         {
-            return int.Parse(MaxPageTextBlock.Text);
+            return int.Parse(MaxPageTextBlock.Text!);
         }
         set
         {

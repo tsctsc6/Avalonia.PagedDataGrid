@@ -63,7 +63,7 @@ public partial class PagedEnumerableDataGrid : UserControl
     {
         get
         {
-            return int.Parse(MaxPageTextBlock.Text);
+            return int.Parse(MaxPageTextBlock.Text!);
         }
         set
         {
